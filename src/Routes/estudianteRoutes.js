@@ -6,6 +6,8 @@ import {
     mostrarEstudiantes,
     mostrarUnEstudiante
 } from '../Controllers/estudianteController.js';
+import { toUpperCase } from "../Middlewares/toUpperCaseMiddleware.js";
+import { agregarColegio } from "../Middlewares/agregarColegioMiddleware.js";
 
 
 const router = Router()
@@ -14,7 +16,7 @@ router.get('/ver', mostrarEstudiantes)
 
 router.get('/verEstudiante/:id', mostrarUnEstudiante)
 
-router.post('/crear', crearEstudiante)
+router.post('/crear',[toUpperCase, agregarColegio] , crearEstudiante)
 
 router.put('/estudiantes/:id/editar', editarEstudiante)
 

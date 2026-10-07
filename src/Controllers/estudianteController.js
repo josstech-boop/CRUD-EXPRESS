@@ -1,25 +1,46 @@
 //Crud estudiantes
 let estudiantes = []
 
-const crearEstudiante = (req, res) => {
-    const { id, name } = req.body;
-    estudiantes.push({ id, name })
+const crearEstudiante = (req, res, next) => {
 
-    res.status(201).json({
-        message: "Estudiante creado",
-        data: {
-            id,
-            name
-        }
-    })
+    try {
+
+        const { id, name, school } = req.body;
+        estudiantes.push({ id, name, school })
+
+        res.status(201).json({
+            message: "Estudiante creado",
+            data: {
+                id,
+                name
+            }
+        })
+    } catch (error) {
+
+        next(error)
+
+    }
 }
 //Ver todos los estudiantes
-const mostrarEstudiantes = (req, res) => {
-    res.status(200).json({
-        data: {
-            estudiantes
-        }
+const mostrarEstudiantes = async (req, res) => {
+    throw new Error('Algo salio mal ')
+
+    res.json({
+        message:'Estudiantes'
     })
+
+    // try{
+    // res.status(200).json({
+    //     data: {
+    //         estudiantes
+    //     }
+    // })
+    // }catch(error){
+    //     res.status(500).json({message: 'Error interno del servidor'})
+    // }
+
+
+
 }
 
 //Ver solo un estudiante
