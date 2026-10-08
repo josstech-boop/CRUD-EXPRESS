@@ -3,6 +3,7 @@ import studentsRouter from './src/Routes/estudianteRoutes.js';
 import cursosRouter from './src/Routes/cursosRoutes.js';
 import { logger } from './src/Middlewares/loggerMiddleware.js';
 import { errorHandler } from './src/Middlewares/errorHandler.js';
+import { userRoute } from './src/Routes/userRoutes.js';
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(logger)
 
 app.use('/api/', studentsRouter)
 app.use('/cursos/', cursosRouter)
+
+app.use('/users/', userRoute)
 
 // app.get('/', (req, res) => {
 //     res.send('Hola como estas')
