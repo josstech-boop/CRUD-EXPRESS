@@ -5,6 +5,9 @@ const validateUsersMiddleware = (schema) => {
 
         const result = schema.safeParse(req.body)
 
+        console.log('paso en el middleware de crear')
+        console.log(result.success)
+
         if (!result.success) {
             //const errors = z.flattenError(result.error)
             return res.status(400).json({
@@ -20,3 +23,9 @@ const validateUsersMiddleware = (schema) => {
 }
 
 export { validateUsersMiddleware }
+
+// {
+//     "nombre": "eva",
+//     "email": "eva1@gmail.com",
+//     "password": "osoeva1234568"
+// }

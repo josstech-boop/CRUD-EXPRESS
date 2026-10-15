@@ -4,6 +4,7 @@ const logger = (req, res, next) => {
     console.log(`URL ${req.url}`)
     console.log('Pasaste por un Middleware!!!...');
 
+
     next();
 
 };
